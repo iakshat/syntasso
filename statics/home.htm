@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+</head>
+<body>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    var socket = io();
+    </script>
+
+    <textarea cols="100", rows="65" style="float: left" id="inData"></textarea>
+
+    <textarea cols="100", readonly rows="65" style="float: right" id="output"></textarea>
+
+
+    <script src="/scripts/jquery.js"></script>
+
+    <script>
+
+        var url = window.location;
+        var nick = (url.pathname.split("/")[1]);
+
+
+        $("#inData").on("change keyup paste click", () => {
+
+            console.log("input updated");
+            socket.emit("change in input", {ip: $("#inData").val(), nick: nick});
+
+        });
+
+        socket.on("code update", output => {
+
+            console.log("code update recieved");
+            console.log(output);
+
+            if(output.compilation_error != undefined)
+                $("#output").val("COMPILATION ERROR: \n" + output.compilation_error);
+
+            else if(output.running_error != '')
+                $("#output").val("ERROR: \n" + (output.running_error));
+
+            else
+                $("#output").val(output.output);
+
+
+        })
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
