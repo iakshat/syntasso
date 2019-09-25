@@ -17,7 +17,7 @@ while True:
 
     try:
 
-        URL = "http://localhost:2000/startuser"
+        URL = "https://syntasso.herokuapp.com/startuser"
 
         r = requests.get(URL, {"nick": nick})
 
@@ -50,6 +50,7 @@ while True:
 
 print()
 print("!!!!====----Minimise this terminal window and continue ur work----====!!!!")
+print("open url: https://syntasso.herokuapp.com/" + nick)
 print()
 
 
@@ -58,7 +59,7 @@ def sendCode(code_now):
 
     try:
 
-        URL = "http://localhost:2000/codeupdate"
+        URL = "https://syntasso.herokuapp.com/codeupdate"
 
         r = requests.post(URL, {"nick" : nick, "code" : code_now})
 
