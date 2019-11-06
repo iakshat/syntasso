@@ -6,6 +6,7 @@ import time
 nick = ""
 file_path = ""
 code = ""
+base_url = "http://localhost:8080"
 
 while True:
     nick = input("Enter your nick: ")
@@ -17,7 +18,7 @@ while True:
 
     try:
 
-        URL = "https://syntasso.herokuapp.com/startuser"
+        URL = base_url + "/startuser"
 
         r = requests.get(URL, {"nick": nick})
 
@@ -50,7 +51,7 @@ while True:
 
 print()
 print("!!!!====----Minimise this terminal window and continue ur work----====!!!!")
-print("open url: https://syntasso.herokuapp.com/" + nick)
+print("open url: "+ base_url + "/" + nick)
 print()
 
 
@@ -59,7 +60,7 @@ def sendCode(code_now):
 
     try:
 
-        URL = "https://syntasso.herokuapp.com/codeupdate"
+        URL = base_url + "/codeupdate"
 
         r = requests.post(URL, {"nick" : nick, "code" : code_now})
 

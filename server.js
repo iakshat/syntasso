@@ -22,6 +22,14 @@ app.use(session({
 
 var database = new database.database(__dirname + "/database.json");
 
+app.get("/", (req, res) => {
+
+    res.download(__dirname+"/client.py", (err) => {
+        if(err)
+            console.log(err);
+    })
+
+});
 
 
 async function compile(nick) {
@@ -182,8 +190,8 @@ io.on("connection", (socket) => {
 
 
 
-http.listen(process.env.PORT, () => {
+http.listen(8080, () => {
 
-    console.log("server running at port "+process.env.PORT);
+    console.log("server running at port "+8080);
 
 })
