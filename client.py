@@ -6,7 +6,7 @@ import time
 nick = ""
 file_path = ""
 code = ""
-base_url = "http://localhost:8080"
+base_url = "http://syntasso-syntasso.apps.us-west-1.starter.openshift-online.com"
 
 while True:
     nick = input("Enter your nick: ")
