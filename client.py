@@ -28,7 +28,7 @@ while True:
             print("Your nick: ", nick)
             break
         else:
-            print("Nick taken :-( ......try another")
+            print("Sorry, this nick is already taken :-( ......try another!")
 
 
     except Exception as exce:
@@ -50,8 +50,8 @@ while True:
         print(exce)
 
 print()
-print("!!!!====----Minimise this terminal window and continue ur work----====!!!!")
 print("open url: "+ base_url + "/" + nick)
+print("!!!!====----Minimise this terminal window and continue ur work----====!!!!")
 print()
 
 

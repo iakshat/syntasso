@@ -22,7 +22,14 @@ app.use(session({
 
 var database = new database.database(__dirname + "/database.json");
 
+
 app.get("/", (req, res) => {
+
+    res.sendFile(__dirname + "/statics/index.htm");
+
+})
+
+app.get("/downloadClient", (req, res) => {
 
     res.download(__dirname+"/client.py", (err) => {
         if(err)
